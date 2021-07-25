@@ -31,6 +31,7 @@ export default function UserList() {
           {
             dataIndex: 'name',
             title: 'Nome',
+            width: 160,
             render(name: string, row) {
               return (
                 <Space>
@@ -40,9 +41,9 @@ export default function UserList() {
                   />
                   <Typography.Text
                     ellipsis
-                    style={{ maxWidth: 180 }}
+                    style={{ maxWidth: 120 }}
                   >
-                    {name + name}
+                    {name}
                   </Typography.Text>
                 </Space>
               );
@@ -51,6 +52,8 @@ export default function UserList() {
           {
             dataIndex: 'email',
             title: 'Email',
+            ellipsis: true,
+            width: 240,
           },
           {
             dataIndex: 'role',
