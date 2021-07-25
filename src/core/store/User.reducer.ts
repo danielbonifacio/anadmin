@@ -24,10 +24,13 @@ export const getAllUsers = createAsyncThunk(
 
 export const toggleUserStatus = createAsyncThunk(
   'user/toggleUserStatus',
-  async (user: User.Summary | User.Detailed) =>
+  async (user: User.Summary | User.Detailed) => {
     user.active
-      ? UserService.deactivateExistingUser(user.id)
-      : UserService.activateExistingUser(user.id)
+      ? await UserService.deactivateExistingUser(user.id)
+      : await UserService.activateExistingUser(user.id);
+
+    return user;
+  }
 );
 
 export default createReducer(initialState, (builder) => {
