@@ -93,26 +93,25 @@ export default function UserList() {
         pagination={false}
         columns={[
           {
+            dataIndex: 'avatarUrls',
+            title: '',
+            width: 48,
+            fixed: 'left',
+            render(avatarUrls: User.Summary['avatarUrls']) {
+              return (
+                <Avatar
+                  size={'small'}
+                  src={avatarUrls.small}
+                />
+              );
+            },
+          },
+          {
             dataIndex: 'name',
             title: 'Nome',
             ...getColumnSearchProps('name', 'nome'),
             width: 160,
-            render(name: string, row) {
-              return (
-                <Space>
-                  <Avatar
-                    size={'small'}
-                    src={row.avatarUrls.small}
-                  />
-                  <Typography.Text
-                    ellipsis
-                    style={{ maxWidth: 120 }}
-                  >
-                    {name}
-                  </Typography.Text>
-                </Space>
-              );
-            },
+            ellipsis: true,
           },
           {
             dataIndex: 'email',
@@ -125,6 +124,7 @@ export default function UserList() {
             dataIndex: 'role',
             title: 'Perfil',
             align: 'center',
+            width: 100,
             render(role) {
               return (
                 <Tag
@@ -145,6 +145,7 @@ export default function UserList() {
             dataIndex: 'createdAt',
             title: 'Criação',
             align: 'center',
+            width: 120,
             render(createdAt: string) {
               return format(
                 new Date(createdAt),
@@ -156,6 +157,7 @@ export default function UserList() {
             dataIndex: 'active',
             title: 'Ativo',
             align: 'center',
+            width: 100,
             render(active: boolean, user) {
               return (
                 <Switch
@@ -171,6 +173,7 @@ export default function UserList() {
             dataIndex: 'id',
             title: 'Ações',
             align: 'center',
+            width: 100,
             render() {
               return (
                 <>
