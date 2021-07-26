@@ -4,7 +4,6 @@ import {
   Switch,
   Table,
   Tag,
-  Typography,
   Avatar,
   Card,
   Input,
@@ -92,6 +91,7 @@ export default function UserList() {
         loading={fetching}
         dataSource={users}
         pagination={false}
+        rowKey={'id'}
         columns={[
           {
             title: 'Usuários',
