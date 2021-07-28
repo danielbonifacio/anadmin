@@ -7,7 +7,10 @@ import {
   DatePicker,
   Divider,
   Select,
+  Tabs,
 } from 'antd';
+
+const { TabPane } = Tabs;
 
 export default function UserForm() {
   return (
@@ -16,7 +19,7 @@ export default function UserForm() {
         <Col lg={4}>
           <Avatar size={128} />
         </Col>
-        <Col lg={10}>
+        <Col lg={8}>
           <Form.Item label={'Nome'}>
             <Input placeholder={'E.g.: João Silva'} />
           </Form.Item>
@@ -27,7 +30,7 @@ export default function UserForm() {
             />
           </Form.Item>
         </Col>
-        <Col lg={10}>
+        <Col lg={12}>
           <Form.Item label={'Bio'}>
             <Input.TextArea rows={5} />
           </Form.Item>
@@ -57,6 +60,26 @@ export default function UserForm() {
               placeholder={'E.g.: contato@joao.silva'}
             />
           </Form.Item>
+        </Col>
+        <Col lg={24}>
+          <Divider />
+        </Col>
+
+        <Col lg={24}>
+          <Tabs defaultActiveKey={'personal'}>
+            <TabPane
+              key={'personal'}
+              tab={'Dados pessoais'}
+            >
+              dados pessoais
+            </TabPane>
+            <TabPane
+              key={'bankAccount'}
+              tab={'Dados bancários'}
+            >
+              dados bancários
+            </TabPane>
+          </Tabs>
         </Col>
       </Row>
     </Form>
