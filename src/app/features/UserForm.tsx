@@ -84,9 +84,9 @@ export default function UserForm() {
         const userDTO: User.Input = {
           ...user,
           phone: user.phone.replace(/\D/g, ''),
-          taxpayerId: user.taxpayerId.replace(/\D/g, '')
-        }
-  
+          taxpayerId: user.taxpayerId.replace(/\D/g, ''),
+        };
+
         try {
           await UserService.insertNewUser(userDTO);
           notification.success({
@@ -94,6 +94,7 @@ export default function UserForm() {
             description: 'usuário criado com sucesso',
           });
         } catch (error) {
+          console.log(error);
           if (error instanceof CustomError) {
             if (error.data?.objects) {
               form.setFields(
@@ -117,6 +118,14 @@ export default function UserForm() {
                   };
                 })
               );
+            } else {
+              notification.error({
+                message: error.message,
+                description:
+                  error.data?.detail === 'Network Error'
+                    ? 'Erro na rede'
+                    : error.data?.detail,
+              });
             }
           } else {
             notification.error({
