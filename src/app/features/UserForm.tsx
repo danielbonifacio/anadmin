@@ -81,8 +81,14 @@ export default function UserForm() {
         }
       }}
       onFinish={async (user: User.Input) => {
+        const userDTO: User.Input = {
+          ...user,
+          phone: user.phone.replace(/\D/g, ''),
+          taxpayerId: user.taxpayerId.replace(/\D/g, '')
+        }
+  
         try {
-          await UserService.insertNewUser(user);
+          await UserService.insertNewUser(userDTO);
           notification.success({
             message: 'Sucesso',
             description: 'usuário criado com sucesso',
@@ -346,11 +352,6 @@ export default function UserForm() {
                     <MaskedInput
                       mask='(11) 11111-1111'
                       placeholder={'(27) 99999-0000'}
-                      onChange={event => {
-                        form.setFieldsValue({
-                          phone: event.target.value.replace(/\D/g, '')
-                        })
-                      }}
                     />
                   </Form.Item>
                 </Col>
@@ -372,11 +373,6 @@ export default function UserForm() {
                     <MaskedInput
                       mask='111.111.111-11'
                       placeholder={'111.222.333-44'}
-                      onChange={event => {
-                        form.setFieldsValue({
-                          taxpayerId: event.target.value.replace(/\D/g, '')
-                        })
-                      }}
                     />
                   </Form.Item>
                 </Col>
