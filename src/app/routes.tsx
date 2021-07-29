@@ -7,8 +7,34 @@ import PaymentListView from './views/PaymentList.view';
 import PaymentCreateView from './views/PaymentCreate.view';
 import CashFlowRevenuesView from './views/CashFlowRevenues.view';
 import CashFlowExpensesView from './views/CashFlowExpenses.view';
+import { useEffect } from 'react';
+import CustomError from 'danielbonifacio-sdk/dist/CustomError';
+import { message, notification } from 'antd';
 
 export default function Routes() {
+  useEffect(() => {
+    window.onunhandledrejection = ({ reason }) => {
+      if (reason instanceof CustomError) {
+        if (reason.data?.objects) {
+          reason.data.objects.forEach((error) => {
+            message.error(error.userMessage);
+          });
+        } else {
+          notification.error({
+            message: reason.message,
+            description:
+              reason.data?.detail === 'Network Error'
+                ? 'Erro na rede'
+                : reason.data?.detail,
+          });
+        }
+      } else {
+        notification.error({
+          message: 'Houve um erro',
+        });
+      }
+    };
+  }, []);
   return (
     <Switch>
       <Route path={'/'} exact component={HomeView} />

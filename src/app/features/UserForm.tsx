@@ -49,7 +49,7 @@ export default function UserForm() {
     form.setFieldsValue({
       avatarUrl: avatar || undefined,
     });
-  }, [avatar]);
+  }, [avatar, form]);
 
   return (
     <Form
