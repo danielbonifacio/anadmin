@@ -442,11 +442,17 @@ export default function UserForm() {
                                 value
                               ) {
                                 if (isNaN(Number(value)))
-                                  throw 'Apenas números';
+                                  throw new Error(
+                                    'Apenas números'
+                                  );
                                 if (Number(value) > 100)
-                                  throw 'Máximo é 100';
+                                  throw new Error(
+                                    'Máximo é 100'
+                                  );
                                 if (Number(value) < 0)
-                                  throw 'Mínimo é 0';
+                                  throw new Error(
+                                    'Mínimo é 0'
+                                  );
                               },
                             },
                           ]}
