@@ -152,6 +152,10 @@ export default function UserForm() {
                 required: true,
                 message: 'O campo é obrigatório',
               },
+              {
+                max: 255,
+                message: `O nome não pode ter mais de 255 caracteres`,
+              },
             ]}
           >
             <Input placeholder={'E.g.: João Silva'} />
@@ -180,6 +184,14 @@ export default function UserForm() {
               {
                 required: true,
                 message: 'O campo é obrigatório',
+              },
+              {
+                max: 255,
+                message: `A biografia não pode ter mais de 255 caracteres`,
+              },
+              {
+                min: 10,
+                message: `A biografia não pode ter menos de 10 caracteres`,
               },
             ]}
           >
@@ -222,6 +234,10 @@ export default function UserForm() {
                 required: true,
                 message: 'O campo é obrigatório',
               },
+              {
+                max: 255,
+                message: `O email não pode ter mais de 255 caracteres`,
+              },
             ]}
           >
             <Input
@@ -258,6 +274,10 @@ export default function UserForm() {
                         required: true,
                         message: 'O campo é obrigatório',
                       },
+                      {
+                        max: 50,
+                        message: `O país não pode ter mais de 50 caracteres`,
+                      },
                     ]}
                   >
                     <Input placeholder={'E.g.: Brasil'} />
@@ -271,6 +291,10 @@ export default function UserForm() {
                       {
                         required: true,
                         message: 'O campo é obrigatório',
+                      },
+                      {
+                        max: 50,
+                        message: `O estado não pode ter mais de 50 caracteres`,
                       },
                     ]}
                   >
@@ -288,6 +312,10 @@ export default function UserForm() {
                         required: true,
                         message: 'O campo é obrigatório',
                       },
+                      {
+                        max: 255,
+                        message: `A cidade não pode ter mais de 255 caracteres`,
+                      },
                     ]}
                   >
                     <Input placeholder={'E.g.: Vitória'} />
@@ -301,6 +329,10 @@ export default function UserForm() {
                       {
                         required: true,
                         message: 'O campo é obrigatório',
+                      },
+                      {
+                        max: 20,
+                        message: `O telefone não pode ter mais de 20 caracteres`,
                       },
                     ]}
                   >
@@ -317,6 +349,10 @@ export default function UserForm() {
                       {
                         required: true,
                         message: 'O campo é obrigatório',
+                      },
+                      {
+                        max: 14,
+                        message: `O CPF não pode ter mais de 14 caracteres`,
                       },
                     ]}
                   >
@@ -349,6 +385,10 @@ export default function UserForm() {
                               required: true,
                               message:
                                 'O campo é obrigatório',
+                            },
+                            {
+                              max: 50,
+                              message: `A habilidade não pode ter mais de 50 caracteres`,
                             },
                           ]}
                         >
@@ -395,6 +435,14 @@ export default function UserForm() {
                         required: true,
                         message: 'O campo é obrigatório',
                       },
+                      {
+                        max: 3,
+                        message: `A instituição precisa ter 3 caracteres`,
+                      },
+                      {
+                        min: 3,
+                        message: `A instituição precisa ter 3 caracteres`,
+                      },
                     ]}
                   >
                     <Input placeholder={'260'} />
@@ -408,6 +456,14 @@ export default function UserForm() {
                       {
                         required: true,
                         message: 'O campo é obrigatório',
+                      },
+                      {
+                        max: 10,
+                        message: `A agência precisa ter no máximo 10 caracteres`,
+                      },
+                      {
+                        min: 1,
+                        message: `A agência precisa ter no mínimo 1 caractere`,
                       },
                     ]}
                   >
@@ -436,6 +492,10 @@ export default function UserForm() {
                       {
                         required: true,
                         message: 'O campo é obrigatório',
+                      },
+                      {
+                        max: 1,
+                        message: `O dígito precisa ser único`,
                       },
                     ]}
                   >
