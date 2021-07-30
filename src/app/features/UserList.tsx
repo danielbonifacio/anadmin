@@ -177,6 +177,9 @@ export default function UserList() {
             align: 'center',
             responsive: ['sm'],
             width: 100,
+            sorter(a, b) {
+              return a.role.localeCompare(b.role);
+            },
             render(role) {
               return (
                 <Tag
@@ -198,6 +201,12 @@ export default function UserList() {
             title: 'Criação',
             align: 'center',
             responsive: ['lg'],
+            sorter(a, b) {
+              return new Date(a.createdAt) >
+                new Date(b.createdAt)
+                ? 1
+                : -1;
+            },
             width: 120,
             render(createdAt: string) {
               return format(
