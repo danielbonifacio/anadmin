@@ -2,6 +2,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import HomeView from './views/Home.view';
 import UserCreateView from './views/UserCreate.view';
+import UserEditView from './views/UserEdit.view';
 import UserListView from './views/UserList.view';
 import PaymentListView from './views/PaymentList.view';
 import PaymentCreateView from './views/PaymentCreate.view';
@@ -46,6 +47,11 @@ export default function Routes() {
         path={'/usuarios/cadastro'}
         exact
         component={UserCreateView}
+      />
+      <Route
+        path={'/usuarios/edicao/:id'}
+        exact
+        component={UserEditView}
       />
       <Route
         path={'/usuarios'}
