@@ -1,4 +1,4 @@
-import { notification, Skeleton } from 'antd';
+import { Card, notification, Skeleton } from 'antd';
 import { User, UserService } from 'danielbonifacio-sdk';
 import moment from 'moment';
 import { useCallback } from 'react';
@@ -10,7 +10,7 @@ import UserForm from '../features/UserForm';
 export default function UserEditView() {
   const params = useParams<{ id: string }>();
 
-  const { user, fetchUser } = useUser();
+  const { user, fetchUser, notFound } = useUser();
 
   useEffect(() => {
     if (!isNaN(Number(params.id)))
@@ -31,6 +31,8 @@ export default function UserEditView() {
 
   if (isNaN(Number(params.id)))
     return <Redirect to={'/usuarios'} />;
+
+  if (notFound) return <Card>usuário não encontrado</Card>;
 
   function handleUserUpdate(user: User.Input) {
     UserService.updateExistingUser(
