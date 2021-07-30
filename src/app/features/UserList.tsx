@@ -218,7 +218,7 @@ export default function UserList() {
                   onChange={() => {
                     toggleUserStatus(user);
                   }}
-                  defaultChecked={active}
+                  checked={active}
                 />
               );
             },
