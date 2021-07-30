@@ -11,6 +11,7 @@ import CashFlowExpensesView from './views/CashFlowExpenses.view';
 import { useEffect } from 'react';
 import CustomError from 'danielbonifacio-sdk/dist/CustomError';
 import { message, notification } from 'antd';
+import UserDetailsView from './views/UserDetails.view';
 
 export default function Routes() {
   useEffect(() => {
@@ -52,6 +53,11 @@ export default function Routes() {
         path={'/usuarios/edicao/:id'}
         exact
         component={UserEditView}
+      />
+      <Route
+        path={'/usuarios/:id'}
+        exact
+        component={UserDetailsView}
       />
       <Route
         path={'/usuarios'}
