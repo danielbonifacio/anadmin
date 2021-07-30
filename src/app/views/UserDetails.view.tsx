@@ -7,6 +7,7 @@ import {
   Space,
   Typography,
   Progress,
+  Descriptions,
 } from 'antd';
 import Avatar from 'antd/lib/avatar/avatar';
 import { useEffect } from 'react';
@@ -64,6 +65,22 @@ export default function UserDetailsView() {
             </div>
           ))}
         </Space>
+      </Col>
+      <Col xs={24} lg={12}>
+        <Descriptions column={1} bordered size={'small'}>
+          <Descriptions.Item label={'País'}>
+            {user.location.country}
+          </Descriptions.Item>
+          <Descriptions.Item label={'Estado'}>
+            {user.location.state}
+          </Descriptions.Item>
+          <Descriptions.Item label={'Cidade'}>
+            {user.location.city}
+          </Descriptions.Item>
+          <Descriptions.Item label={'Telefone'}>
+            {user.phone}
+          </Descriptions.Item>
+        </Descriptions>
       </Col>
     </Row>
   );
